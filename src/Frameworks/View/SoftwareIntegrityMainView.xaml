@@ -1,0 +1,88 @@
+﻿<Page x:Class="ScalpAnalysis.src.Frameworks.View.SoftwareIntegrityMainView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ScalpAnalysis.src.Frameworks.View"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d"
+      Background="White"
+      Title="SoftwareIntegrityTool" Height="300" Width="600">
+
+    <DockPanel>
+        <Frame x:Name="_NavigationFrame" NavigationUIVisibility="Hidden"/>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Background="White" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="5"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Welcome to Software Integrity Check Tool" FontWeight="Bold" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        <TextBlock Text="This tool is used to examine files in the software and provide solutions&#x0a;if the software is not functioning properly." Margin="0,10,0,0" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+                    </StackPanel>
+                </Grid>
+
+                <Line Grid.Row="1" Stretch="Fill" Stroke="Gray" X2="0.001" Opacity="0.5"/>
+            </Grid>
+
+            <Grid Grid.Row="1" Background="White" Margin="10,10,10,10">
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Button
+                    Background="#01a669"
+                    Name="btn_positive"
+                    Height="40"
+                    Style="{StaticResource MaterialDesignFlatButton}"
+                    Click="btn_onClick">
+
+                        <StackPanel Orientation="Horizontal">
+
+                            <TextBlock VerticalAlignment="Center" Name="btn_text_positive" Text="Next" Foreground="White"/>
+                            <materialDesign:PackIcon
+                        Width="24"
+                        Height="24"
+                        Foreground="White"
+                        Kind="ChevronRight" />
+
+                        </StackPanel>
+                    </Button>
+
+                    <Button 
+                    Style="{StaticResource MaterialDesignFlatButton}"
+                    Background="#e5e5e5"
+                    VerticalAlignment="Center"
+                    Height="40"
+                    Name="btn_negative"
+                    Click="btn_onClick"
+                    Margin="10,0,0,0">
+
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon
+                        Width="24"
+                        Height="24"
+                        Foreground="#959595"
+                        Kind="Close" />
+
+                            <TextBlock VerticalAlignment="Center" Name="btn_text_negative" Text="Cancel" Foreground="#959595"/>
+
+                        </StackPanel>
+                    </Button>
+
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </DockPanel>
+
+
+</Page>
