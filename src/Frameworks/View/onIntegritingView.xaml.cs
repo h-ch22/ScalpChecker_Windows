@@ -46,8 +46,8 @@ namespace ScalpAnalysis.src.Frameworks.View
             string FIJI_Model = @"C:\Program Files\ScalpChecker\Models\FIJI.h5";
             string HONGBAN_Model = @"C:\Program Files\ScalpChecker\Models\HONGBAN.h5";
             string MISE_Model = @"C:\Program Files\ScalpChecker\Models\MISE.h5";
-            string NONGPO_Model = @"C:\Program Files (x86)\ScalpChecker\Models\NONGPO.h5";
-            string TALMO_Model = @"C:\Program Files (x86)\ScalpChecker\Models\TALMO.h5";
+            string NONGPO_Model = @"C:\Program Files\ScalpChecker\Models\NONGPO.h5";
+            string TALMO_Model = @"C:\Program Files\ScalpChecker\Models\TALMO.h5";
 
             isMainFileExists = File.Exists(mainFile);
             isBIDUMExists = File.Exists(BIDUM_Model);

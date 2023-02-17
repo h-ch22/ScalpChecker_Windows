@@ -33,18 +33,9 @@ namespace ScalpAnalysis.src.Check.Helper
 
         public Task CheckGPUCompatibility()
         {
-            var is64bitOS = Environment.Is64BitOperatingSystem;
             Process process = new Process();
 
-            if (is64bitOS)
-            {
-                process.StartInfo = new ProcessStartInfo(@"C:\Program Files\ScalpChecker\GPUCompatibility\main.exe");
-            }
-            else
-            {
-                process.StartInfo = new ProcessStartInfo(@"C:\Program Files\ScalpChecker\GPUCompatibility\main.exe");
-            }
-
+            process.StartInfo = new ProcessStartInfo(@"C:\Program Files\ScalpChecker\GPUCompatibility\main.exe");
             process.StartInfo.CreateNoWindow= true;
             process.StartInfo.UseShellExecute= false;
             process.StartInfo.RedirectStandardOutput= true;
@@ -65,25 +56,12 @@ namespace ScalpAnalysis.src.Check.Helper
 
         public Task Check()
         {
-            var Is64bitOS = Environment.Is64BitOperatingSystem;
             Process process = new Process();
 
-            if (Is64bitOS)
-            {
-                process.StartInfo = new ProcessStartInfo(@"C:\Program Files\ScalpChecker\include\main.exe");
-                process.StartInfo.CreateNoWindow= true;
-                process.StartInfo.UseShellExecute= false;
-                process.Start();
-            }
-
-            else
-            {
-                process.StartInfo = new ProcessStartInfo(@"C:\Program Files\ScalpChecker\include\main.exe");
-                process.StartInfo.CreateNoWindow = true;
-                process.StartInfo.UseShellExecute = false;
-                process.Start();
-            }
-
+            process.StartInfo = new ProcessStartInfo(@"C:\Program Files\ScalpChecker\include\main.exe");
+            process.StartInfo.CreateNoWindow = true;
+            process.StartInfo.UseShellExecute = false;
+            process.Start();
 
             if (process.HasExited)
             {
@@ -136,33 +114,12 @@ namespace ScalpAnalysis.src.Check.Helper
 
         public void createModelsRoot()
         {
-            var Is64bitOS = Environment.Is64BitOperatingSystem;
-
-            string MODEL_DIR_BIDUM = "";
-            string MODEL_DIR_FIJI = "";
-            string MODEL_DIR_HONGBAN = "";
-            string MODEL_DIR_MISE = "";
-            string MODEL_DIR_NONGPO = "";
-            string MODEL_DIR_TALMO = "";
-
-            if (Is64bitOS)
-            {
-                MODEL_DIR_BIDUM = @"C:\Program Files\ScalpChecker\Models\BIDUM.h5";
-                MODEL_DIR_FIJI = @"C:\Program Files\ScalpChecker\Models\FIJI.h5";
-                MODEL_DIR_HONGBAN = @"C:\Program Files\ScalpChecker\Models\HONGBAN.h5";
-                MODEL_DIR_MISE = @"C:\Program Files\ScalpChecker\Models\MISE.h5";
-                MODEL_DIR_NONGPO = @"C:\Program Files\ScalpChecker\Models\NONGPO.h5";
-                MODEL_DIR_TALMO = @"C:\Program Files\ScalpChecker\Models\TALMO.h5";
-            }
-            else
-            {
-                MODEL_DIR_BIDUM = @"C:\Program Files\ScalpChecker\Models\BIDUM.h5";
-                MODEL_DIR_FIJI = @"C:\Program Files\ScalpChecker\Models\FIJI.h5";
-                MODEL_DIR_HONGBAN = @"C:\Program Files\ScalpChecker\Models\HONGBAN.h5";
-                MODEL_DIR_MISE = @"C:\Program Files\ScalpChecker\Models\MISE.h5";
-                MODEL_DIR_NONGPO = @"C:\Program Files\ScalpChecker\Models\NONGPO.h5";
-                MODEL_DIR_TALMO = @"C:\Program Files\ScalpChecker\Models\TALMO.h5";
-            }
+            string MODEL_DIR_BIDUM = @"C:\Program Files\ScalpChecker\Models\BIDUM.h5";
+            string MODEL_DIR_FIJI = @"C:\Program Files\ScalpChecker\Models\FIJI.h5";
+            string MODEL_DIR_HONGBAN = @"C:\Program Files\ScalpChecker\Models\HONGBAN.h5";
+            string MODEL_DIR_MISE = @"C:\Program Files\ScalpChecker\Models\MISE.h5";
+            string MODEL_DIR_NONGPO = @"C:\Program Files\ScalpChecker\Models\NONGPO.h5";
+            string MODEL_DIR_TALMO = @"C:\Program Files\ScalpChecker\Models\TALMO.h5";
 
             string rootDir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\ScalpChecker";
             string TEMPDir = rootDir + @"\TEMP";
