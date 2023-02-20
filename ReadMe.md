@@ -25,19 +25,19 @@ Scalp Checker
 > History
 
 * Build&Test Environment
-  > Microsoft Windows 11 Pro
-  > Intel Core i7-12700K
-  > 32GB RAM
-  > Python 3.9.13
-  > Microsoft Visual Studio 2022
-  > PyCharm 2022.3.1
-  > Tensorflow 2.10.1
+  > Microsoft Windows 11 Pro<br/>
+  > Intel Core i7-12700K<br/>
+  > 32GB RAM<br/>
+  > Python 3.9.13<br/>
+  > Microsoft Visual Studio 2022<br/>
+  > PyCharm 2022.3.1<br/>
+  > Tensorflow 2.10.1<br/>
 
 * System Requirements
-  > CPU : Intel Core i5-7500 or up
-  > RAM : 4GB or up
-  > OS : Microsoft Windows 8.1 (x64) or up
-  > Disk Space : 6GB or up
-  > GPU : N/A (NVIDIA GPU Recommend.)
-  > Others : .NET Framework 4.8 Required.
-  > if GPU Available, Please install CUDA + cuDNN + NVIDIA Geforce Driver for your GPU
+  > CPU : Intel Core i5-7500 or up<br/>
+  > RAM : 4GB or up<br/>
+  > OS : Microsoft Windows 8.1 (x64) or up<br/>
+  > Disk Space : 6GB or up<br/>
+  > GPU : N/A (NVIDIA GPU Recommend.)<br/>
+  > Others : .NET Framework 4.8 Required.<br/>
+  > if GPU Available, Please install CUDA + cuDNN + NVIDIA Geforce Driver for your GPU<br/>
