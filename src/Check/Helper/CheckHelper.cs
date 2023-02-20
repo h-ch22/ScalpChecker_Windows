@@ -17,12 +17,13 @@ namespace ScalpAnalysis.src.Check.Helper
     {
         private int exitCode = 0;
         private bool gpuCompatibility = false;
-        public void createProperties(string types, string img_dir, string id)
+        public void createProperties(string types, string img_dir, string id, string modelType)
         {
             string options = "";
             options += id + ";";
             options += types + ";";
             options += img_dir + ";";
+            options += modelType + ";";
 
             string path_Options = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\ScalpChecker\TEMP\Properties.txt";
             using (StreamWriter sw = File.CreateText(path_Options))
@@ -112,7 +113,7 @@ namespace ScalpAnalysis.src.Check.Helper
             return exitCode;
         }
 
-        public void createModelsRoot()
+        public void createModelsRoot(string modelType)
         {
             string MODEL_DIR_BIDUM = @"C:\Program Files\ScalpChecker\Models\BIDUM.h5";
             string MODEL_DIR_FIJI = @"C:\Program Files\ScalpChecker\Models\FIJI.h5";
@@ -120,6 +121,13 @@ namespace ScalpAnalysis.src.Check.Helper
             string MODEL_DIR_MISE = @"C:\Program Files\ScalpChecker\Models\MISE.h5";
             string MODEL_DIR_NONGPO = @"C:\Program Files\ScalpChecker\Models\NONGPO.h5";
             string MODEL_DIR_TALMO = @"C:\Program Files\ScalpChecker\Models\TALMO.h5";
+
+            string MODEL_DIR_BIDUM_ViT = @"C:\Program Files\ScalpChecker\Models\BIDUM_ViT.h5";
+            string MODEL_DIR_FIJI_ViT = @"C:\Program Files\ScalpChecker\Models\FIJI_ViT.h5";
+            string MODEL_DIR_HONGBAN_ViT = @"C:\Program Files\ScalpChecker\Models\HONGBAN_ViT.h5";
+            string MODEL_DIR_MISE_ViT = @"C:\Program Files\ScalpChecker\Models\MISE_ViT.h5";
+            string MODEL_DIR_NONGPO_ViT = @"C:\Program Files\ScalpChecker\Models\NONGPO_ViT.h5";
+            string MODEL_DIR_TALMO_ViT = @"C:\Program Files\ScalpChecker\Models\TALMO_ViT.h5";
 
             string rootDir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\ScalpChecker";
             string TEMPDir = rootDir + @"\TEMP";
@@ -141,40 +149,82 @@ namespace ScalpAnalysis.src.Check.Helper
             }
 
             string path_BIDUM = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\ScalpChecker\TEMP\Models\ModelDir_BIDUM.txt";
-            using (StreamWriter sw = File.CreateText(path_BIDUM))
+
+            if(modelType == "ViT")
             {
-                sw.WriteLine(MODEL_DIR_BIDUM);
+                using (StreamWriter sw = File.CreateText(path_BIDUM))
+                {
+                    sw.WriteLine(MODEL_DIR_BIDUM_ViT);
+                }
+
+                string path_FIJI = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\ScalpChecker\TEMP\Models\ModelDir_FIJI.txt";
+                using (StreamWriter sw = File.CreateText(path_FIJI))
+                {
+                    sw.WriteLine(MODEL_DIR_FIJI_ViT);
+                }
+
+                string path_HONGBAN = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\ScalpChecker\TEMP\Models\ModelDir_HONGBAN.txt";
+                using (StreamWriter sw = File.CreateText(path_HONGBAN))
+                {
+                    sw.WriteLine(MODEL_DIR_HONGBAN_ViT);
+                }
+
+                string path_MISE = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\ScalpChecker\TEMP\Models\ModelDir_MISE.txt";
+                using (StreamWriter sw = File.CreateText(path_MISE))
+                {
+                    sw.WriteLine(MODEL_DIR_MISE_ViT);
+                }
+
+                string path_NONGPO = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\ScalpChecker\TEMP\Models\ModelDir_NONGPO.txt";
+                using (StreamWriter sw = File.CreateText(path_NONGPO))
+                {
+                    sw.WriteLine(MODEL_DIR_NONGPO_ViT);
+                }
+
+                string path_TALMO = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\ScalpChecker\TEMP\Models\ModelDir_TALMO.txt";
+                using (StreamWriter sw = File.CreateText(path_TALMO))
+                {
+                    sw.WriteLine(MODEL_DIR_TALMO_ViT);
+                }
+            } else if(modelType == "Keras")
+            {
+                using (StreamWriter sw = File.CreateText(path_BIDUM))
+                {
+                    sw.WriteLine(MODEL_DIR_BIDUM);
+                }
+
+                string path_FIJI = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\ScalpChecker\TEMP\Models\ModelDir_FIJI.txt";
+                using (StreamWriter sw = File.CreateText(path_FIJI))
+                {
+                    sw.WriteLine(MODEL_DIR_FIJI);
+                }
+
+                string path_HONGBAN = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\ScalpChecker\TEMP\Models\ModelDir_HONGBAN.txt";
+                using (StreamWriter sw = File.CreateText(path_HONGBAN))
+                {
+                    sw.WriteLine(MODEL_DIR_HONGBAN);
+                }
+
+                string path_MISE = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\ScalpChecker\TEMP\Models\ModelDir_MISE.txt";
+                using (StreamWriter sw = File.CreateText(path_MISE))
+                {
+                    sw.WriteLine(MODEL_DIR_MISE);
+                }
+
+                string path_NONGPO = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\ScalpChecker\TEMP\Models\ModelDir_NONGPO.txt";
+                using (StreamWriter sw = File.CreateText(path_NONGPO))
+                {
+                    sw.WriteLine(MODEL_DIR_NONGPO);
+                }
+
+                string path_TALMO = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\ScalpChecker\TEMP\Models\ModelDir_TALMO.txt";
+                using (StreamWriter sw = File.CreateText(path_TALMO))
+                {
+                    sw.WriteLine(MODEL_DIR_TALMO);
+                }
             }
 
-            string path_FIJI = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\ScalpChecker\TEMP\Models\ModelDir_FIJI.txt";
-            using (StreamWriter sw = File.CreateText(path_FIJI))
-            {
-                sw.WriteLine(MODEL_DIR_FIJI);
-            }
 
-            string path_HONGBAN = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\ScalpChecker\TEMP\Models\ModelDir_HONGBAN.txt";
-            using (StreamWriter sw = File.CreateText(path_HONGBAN))
-            {
-                sw.WriteLine(MODEL_DIR_HONGBAN);
-            }
-
-            string path_MISE = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\ScalpChecker\TEMP\Models\ModelDir_MISE.txt";
-            using (StreamWriter sw = File.CreateText(path_MISE))
-            {
-                sw.WriteLine(MODEL_DIR_MISE);
-            }
-
-            string path_NONGPO = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\ScalpChecker\TEMP\Models\ModelDir_NONGPO.txt";
-            using (StreamWriter sw = File.CreateText(path_NONGPO))
-            {
-                sw.WriteLine(MODEL_DIR_NONGPO);
-            }
-
-            string path_TALMO = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\ScalpChecker\TEMP\Models\ModelDir_TALMO.txt";
-            using (StreamWriter sw = File.CreateText(path_TALMO))
-            {
-                sw.WriteLine(MODEL_DIR_TALMO);
-            }
         }
 
 

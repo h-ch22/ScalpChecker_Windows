@@ -124,6 +124,7 @@ namespace ScalpAnalysis.src.Statistics.View
                     StatisticsHelper.selectedID = results[currentIndex].id;
 
                     allView.setResults();
+
                 }
                 else
                 {

@@ -36,25 +36,56 @@
                     Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
                     Padding="10">
 
-                        <StackPanel Orientation="Horizontal">
-                            <RadioButton
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Orientation="Horizontal" Grid.Column="0">
+                                <TextBlock Text="Inspection Type" VerticalAlignment="Center" FontWeight="Bold"/>
+
+                                <RadioButton
                             Style="{StaticResource MaterialDesignChoiceChipPrimaryRadioButton}"
                             x:Name="radioButton_All"
                             Checked="onClick_radioButton_All">
-                                <WrapPanel>
-                                    <TextBlock Text="Inspect All" Foreground="White"/>
-                                </WrapPanel>
-                            </RadioButton>
+                                    <WrapPanel>
+                                        <TextBlock Text="Inspect All" Foreground="White"/>
+                                    </WrapPanel>
+                                </RadioButton>
 
-                            <RadioButton
+                                <RadioButton
                             Style="{StaticResource MaterialDesignChoiceChipPrimaryRadioButton}"
                             x:Name="radioButton_specific"
                             Checked="onClick_radioButton_Specific">
-                                <WrapPanel>
-                                    <TextBlock Text="Inspect Specific" Foreground="White"/>
-                                </WrapPanel>
-                            </RadioButton>
-                        </StackPanel>
+                                    <WrapPanel>
+                                        <TextBlock Text="Inspect Specific" Foreground="White"/>
+                                    </WrapPanel>
+                                </RadioButton>
+                            </StackPanel>
+                            
+                            <StackPanel Grid.Column="2" Orientation="Horizontal">
+                                <TextBlock Text="Model Type" VerticalAlignment="Center" FontWeight="Bold"/>
+                                <RadioButton
+                            Style="{StaticResource MaterialDesignChoiceChipOutlineRadioButton}"
+                            x:Name="radioButton_Keras"
+                            IsChecked="True">
+                                    <WrapPanel>
+                                        <TextBlock Text="Keras" Foreground="White"/>
+                                    </WrapPanel>
+                                </RadioButton>
+
+                                <RadioButton
+                            Style="{StaticResource MaterialDesignChoiceChipOutlineRadioButton}"
+                            x:Name="radioButton_ViT">
+                                    <WrapPanel>
+                                        <TextBlock Text="ViT (Beta)" Foreground="White"/>
+                                    </WrapPanel>
+                                </RadioButton>
+                            </StackPanel>
+
+                        </Grid>
 
                     </materialDesign:Card>
 
@@ -181,6 +212,8 @@
                         </TextBlock>
                     </StackPanel>
                 </Button>
+
+
             </StackPanel>
 
             <ProgressBar Visibility="Collapsed" Style="{StaticResource MaterialDesignCircularProgressBar}" Width="30" IsIndeterminate="True" Grid.Row="2" Name="progressBar" VerticalAlignment="Center" HorizontalAlignment="Center" Height="30"/>

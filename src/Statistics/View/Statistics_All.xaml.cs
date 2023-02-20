@@ -296,7 +296,6 @@ namespace ScalpAnalysis.src.Statistics.View
             }
             else
             {
-                imgView_DANDRUFF.Visibility = Visibility.Collapsed;
                 TXT_NODATA_DANDRUFF.Text = "No Data";
                 TXT_NODATA_DANDRUFF.Foreground = Brushes.Gray;
 
@@ -320,7 +319,7 @@ namespace ScalpAnalysis.src.Statistics.View
 
             if (File.Exists(HONGBAN_DIR))
             {
-                imgView_ERYTHEMA.Visibility = Visibility.Visible;
+                imgView_ERYTHEMA.Visibility= Visibility.Visible;    
                 TXT_NODATA_ERYTHEMA.Visibility = Visibility.Collapsed;
                 imgView_ERYTHEMA.Source = new BitmapImage(new Uri(HONGBAN_DIR));
             }
@@ -335,7 +334,7 @@ namespace ScalpAnalysis.src.Statistics.View
 
             if (File.Exists(MISE_DIR))
             {
-                imgView_MICROKERATIN.Visibility = Visibility.Visible;
+                imgView_MICROKERATIN.Visibility= Visibility.Visible;    
                 TXT_NODATA_MICROKERATIN.Visibility = Visibility.Collapsed;
                 imgView_MICROKERATIN.Source = new BitmapImage(new Uri(MISE_DIR));
             }
@@ -375,6 +374,7 @@ namespace ScalpAnalysis.src.Statistics.View
                 TXT_NODATA_HAIRLOSS.Foreground = Brushes.Gray;
                 TXT_NODATA_HAIRLOSS.Visibility = Visibility.Visible;
             }
+
         }
     }
 }

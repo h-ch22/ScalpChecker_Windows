@@ -54,6 +54,8 @@ namespace ScalpAnalysis.src.Check.View
             btnOpen.Visibility = Visibility.Collapsed;
             btn_check.Visibility = Visibility.Collapsed;
             progressBar.Visibility = Visibility.Visible;
+            radioButton_Keras.Visibility = Visibility.Collapsed;
+            radioButton_ViT.Visibility = Visibility.Collapsed;
         }
 
         private void resetVisibility()
@@ -68,6 +70,10 @@ namespace ScalpAnalysis.src.Check.View
             btnOpen.Visibility = Visibility.Visible;
             btn_check.Visibility = Visibility.Visible;
             progressBar.Visibility = Visibility.Collapsed;
+            radioButton_Keras.IsChecked = true;
+            radioButton_ViT.IsChecked = false;
+            radioButton_Keras.Visibility = Visibility.Visible;
+            radioButton_ViT.Visibility = Visibility.Visible;
         }
 
         private async void startInspection()
@@ -91,7 +97,15 @@ namespace ScalpAnalysis.src.Check.View
                 }
             }
 
-            helper.createModelsRoot();
+            if(radioButton_Keras.IsChecked ?? true)
+            {
+                helper.createModelsRoot("Keras");
+
+            } else if(radioButton_ViT.IsChecked ?? false)
+            {
+                helper.createModelsRoot("ViT");
+
+            }
 
             var options = "";
 
@@ -132,8 +146,20 @@ namespace ScalpAnalysis.src.Check.View
                 }
             }
 
+            var modelType = "";
+
+            if (radioButton_Keras.IsChecked ?? true)
+            {
+                modelType = "Keras";
+            }
+            else if(radioButton_ViT.IsChecked ?? false)
+            {
+                modelType = "ViT";
+            }
+
             var id = createId();
-            helper.createProperties(options, imgPath, id);
+            helper.createProperties(options, imgPath, id, modelType);
+
             await helper.Check();
             var exitCode = helper.getExitCode();
 

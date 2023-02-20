@@ -21,18 +21,22 @@ namespace ScalpAnalysis.src.Frameworks.View
     public partial class SoftwareIntegrityToolResult : Page
     {
         public SoftwareIntegrityToolResult(
-         bool isMainFileExists, bool isBIDUMExists, bool isFIJIExists, bool isHONGBANExists, bool isMISEExists, bool isNONGPOExists, bool isTALMOExists
+         bool isMainFileExists, bool isGPUCheckerExists, bool isBIDUMExists, bool isFIJIExists, bool isHONGBANExists, bool isMISEExists, bool isNONGPOExists, bool isTALMOExists, bool isBIDUM_ViT_Exists, bool isFIJI_ViT_Exists, bool isHONGBAN_ViT_Exists, bool isMISE_ViT_Exists, bool isNONGPO_ViT_Exists, bool isTALMO_ViT_Exists
         )
         {
             InitializeComponent();
 
-            if (!isMainFileExists || !isBIDUMExists || !isFIJIExists || !isHONGBANExists || !isMISEExists || !isNONGPOExists || !isTALMOExists)
+            if (!isMainFileExists || !isGPUCheckerExists || !isBIDUMExists || !isFIJIExists || !isHONGBANExists || !isMISEExists || !isNONGPOExists || !isTALMOExists || !isBIDUM_ViT_Exists || !isFIJI_ViT_Exists || !isHONGBAN_ViT_Exists || !isMISE_ViT_Exists || !isNONGPO_ViT_Exists || !isTALMO_ViT_Exists)
             {
                 string errors = "";
 
                 if (!isMainFileExists)
                 {
                     errors += "Missing Inspection software file.\n";
+                }
+
+                if(!isGPUCheckerExists) {
+                    errors += "Missing GPU Compatibility Checker.\n";
                 }
 
                 if (!isBIDUMExists)
@@ -60,8 +64,47 @@ namespace ScalpAnalysis.src.Frameworks.View
 
                 if (!isTALMOExists)
                 {
+                    errors += "Missing pustule model file.\n";
+                }
+
+                if (!isNONGPOExists)
+                {
                     errors += "Missing hair loss model file.\n";
                 }
+
+                if (!isBIDUM_ViT_Exists)
+                {
+                    errors += "Missing Dandruff_ViT model file.\n";
+                }
+
+                if (!isFIJI_ViT_Exists)
+                {
+                    errors += "Missing Sebum_ViT model file.\n";
+
+                }
+
+                if (!isHONGBAN_ViT_Exists)
+                {
+                    errors += "Missing erythema_ViT model file.\n";
+
+                }
+
+                if (!isMISE_ViT_Exists)
+                {
+                    errors += "Missing microkeratin_ViT model file.\n";
+
+                }
+
+                if (!isTALMO_ViT_Exists)
+                {
+                    errors += "Missing pustule_ViT model file.\n";
+                }
+
+                if (!isNONGPO_ViT_Exists)
+                {
+                    errors += "Missing hair loss_ViT model file.\n";
+                }
+
 
                 TXT_RESULT_HEADER.Text = "Software integrity check tool found a problem with this software.";
                 TXT_RESULT_DETAIL.Text = errors;
