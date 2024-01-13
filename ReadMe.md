@@ -1,3 +1,4 @@
+<img src="/README/ScalpChecker_mockup.png"/><br>
 Scalp Checker
 =============
 > Check your Scalp Health with Scalp Checker
