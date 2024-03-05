@@ -3,6 +3,8 @@ Scalp Checker
 =============
 > Check your Scalp Health with Scalp Checker
 
+[Ha, Changjin, Taesik Go, and Woorak Choi. "Intelligent Healthcare Platform for Diagnosis of Scalp and Hair Disorders." Applied Sciences 14.5 (2024): 1734.](https://www.mdpi.com/2076-3417/14/5/1734)<br>
+
 * How to Use
   + Download&Build Project
   + Download Project : [Scalp Checker Python Project](https://github.com/h-ch22/ScalpChecker_PYTHON)
